@@ -48,6 +48,11 @@ move_right={
 
 pointing/emulate_touch_from_mouse=true
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="platform"
+
 [rendering]
 
 renderer/rendering_method="mobile"

@@ -132,9 +132,11 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_4l1np")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 100
 position = Vector2(0, -48)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("1_rdu3g")
