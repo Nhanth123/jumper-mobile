@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdlxca53rrkis"]
+[gd_scene load_steps=9 format=3 uid="uid://bdlxca53rrkis"]
 
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_4l1np"]
 [ext_resource type="Texture2D" uid="uid://cvd1nbf82ivi" path="res://assets/textures/character/Skin1Idle.png" id="1_rdu3g"]
 [ext_resource type="Texture2D" uid="uid://8e0j75cgfrls" path="res://assets/textures/character/Skin1Jump.png" id="2_4r4k7"]
 
@@ -131,6 +132,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_4l1np")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -48)
