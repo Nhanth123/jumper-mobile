@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/platform.gd" id="1_wfxln"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwjal"]
-size = Vector2(134.25, 5.25)
+size = Vector2(134, 5)
 
 [node name="Platform" type="Area2D"]
 collision_layer = 2
