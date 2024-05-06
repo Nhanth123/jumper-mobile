@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://scripts/game_camera.gd" id="1_tchyt"]
 
 [node name="GameCamera" type="Camera2D"]
+limit_bottom = 960
 script = ExtResource("1_tchyt")
