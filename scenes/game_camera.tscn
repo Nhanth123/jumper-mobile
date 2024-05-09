@@ -5,3 +5,9 @@
 [node name="GameCamera" type="Camera2D"]
 limit_bottom = 960
 script = ExtResource("1_tchyt")
+
+[node name="CleanUp" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CleanUp"]
