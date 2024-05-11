@@ -22,10 +22,10 @@ func _ready():
 	rect_shape.set_size(rect_shape_size)
 	collision_shape_2d.shape = rect_shape
 	
-func _process(delta):
+func _process(_delta):
 	if player:
 		if limit_bottom > player.global_position.y + limit_distance:
-			limit_bottom = player.global_position.y + limit_distance
+			limit_bottom = int(player.global_position.y + limit_distance)
 	
 	var overlapping_areas =  clean_up.get_overlapping_areas()
 	if overlapping_areas.size() > 0:
@@ -34,7 +34,7 @@ func _process(delta):
 				area.queue_free()
 				#print("Deleting " + area.name)
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player:
 		global_position.y = player.global_position.y
 	
