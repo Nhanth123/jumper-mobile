@@ -1,16 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://cw0sxl5jy1lwa"]
+[gd_scene load_steps=7 format=3 uid="uid://cw0sxl5jy1lwa"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_5hofh"]
 [ext_resource type="Texture2D" uid="uid://cedx8dmn4lkhy" path="res://assets/textures/bg/Ground.png" id="2_fpuio"]
 [ext_resource type="PackedScene" uid="uid://b8hnxbnwdy44t" path="res://scenes/level_generator.tscn" id="3_d82i3"]
+[ext_resource type="Texture2D" uid="uid://1v3mlk3w7nx7" path="res://assets/textures/bg/Layer1.png" id="4_g8i05"]
+[ext_resource type="Texture2D" uid="uid://c4kaqddesp46s" path="res://assets/textures/bg/Layer2.png" id="5_flp1d"]
+[ext_resource type="Texture2D" uid="uid://cuky5mksrnb01" path="res://assets/textures/bg/Layer3.png" id="6_jaeuo"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_5hofh")
 
-[node name="LevelGenerator" parent="." instance=ExtResource("3_d82i3")]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("4_g8i05")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(0, 2509.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("5_flp1d")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.85, 0.85)
+motion_mirroring = Vector2(0, 2509.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+scale = Vector2(0.875, 0.875)
+texture = ExtResource("6_jaeuo")
+centered = false
 
 [node name="GroundSprite" type="Sprite2D" parent="."]
 position = Vector2(270, 960)
 scale = Vector2(1, 0.7)
 texture = ExtResource("2_fpuio")
 offset = Vector2(0, -61)
+
+[node name="LevelGenerator" parent="." instance=ExtResource("3_d82i3")]
