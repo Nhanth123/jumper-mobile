@@ -17,7 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ConsoleLog" type="Control" parent="Debug"]
+[node name="ConsoleLog" type="Control" parent="Debug" groups=["debug_console"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,7 +44,7 @@ offset_top = 14.0
 offset_right = 255.0
 offset_bottom = 51.0
 grow_horizontal = 2
-text = "Build 01."
+text = "Build 1.0.0"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Debug/ConsoleLog"]
 layout_mode = 1
@@ -73,9 +73,12 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -100.0
-offset_right = 100.0
+offset_left = -1.0
+offset_top = -58.0001
+offset_right = 99.0
+offset_bottom = 41.9999
 grow_vertical = 0
+scale = Vector2(0.564613, 0.557093)
 texture_normal = ExtResource("2_y7jwi")
 stretch_mode = 0
 

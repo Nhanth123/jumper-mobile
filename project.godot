@@ -21,6 +21,10 @@ run/size/viewport_height=960
 run/size/viewport_width=540
 run/handheld/orientation=1
 
+[autoload]
+
+MyUtility="*res://scripts/utility.gd"
+
 [display]
 
 window/size/viewport_width=540
