@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://q6hlw71fd0pg"]
+[gd_scene load_steps=5 format=3 uid="uid://q6hlw71fd0pg"]
 
 [ext_resource type="Script" path="res://scripts/screens.gd" id="1_42j5j"]
 [ext_resource type="Texture2D" uid="uid://ddpu0mc8wouu1" path="res://assets/textures/ui/gear.png" id="2_y7jwi"]
+[ext_resource type="PackedScene" uid="uid://cbd1kletb1dx" path="res://scenes/title_screen.tscn" id="3_mg3nv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6x456"]
 
 [node name="Screens" type="CanvasLayer"]
 script = ExtResource("1_42j5j")
+
+[node name="TitleScreen" parent="." instance=ExtResource("3_mg3nv")]
 
 [node name="Debug" type="Control" parent="."]
 z_index = 1200
