@@ -89,7 +89,7 @@ offset_right = 162.5
 offset_bottom = 88.4809
 grow_horizontal = 2
 grow_vertical = 2
-text = "BEST : 9009"
+text = "BEST : 9991"
 label_settings = SubResource("LabelSettings_1lxfh")
 horizontal_alignment = 1
 

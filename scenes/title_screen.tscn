@@ -9,7 +9,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/Play:position")
+tracks/0/path = NodePath("Control/TitlePlay:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,7 +26,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/Play:position")
+tracks/0/path = NodePath("Control/TitlePlay:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -79,7 +79,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_ha2h7")
 
-[node name="Play" parent="Control" instance=ExtResource("2_tlk2o")]
+[node name="TitlePlay" parent="Control" instance=ExtResource("2_tlk2o")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
