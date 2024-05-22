@@ -49,7 +49,9 @@ func _on_toggle_console_pressed():
 
 func change_screen(new_screen):
 	if current_screne != null:
-		current_screne.disappear()
+		var disappear_tween = current_screne.disappear()
+		await (disappear_tween.finished)
+		current_screne.visible = false
 	
 	current_screne = new_screen
 	
