@@ -56,4 +56,7 @@ func change_screen(new_screen):
 	current_screne = new_screen
 	
 	if current_screne != null:
-		current_screne.appear()
+		var appear_tween =  current_screne.appear()
+		await (appear_tween.finished)
+		get_tree().call_group("buttons", "set_disabled", false)
+		
