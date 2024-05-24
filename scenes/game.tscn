@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cw0sxl5jy1lwa"]
+[gd_scene load_steps=8 format=3 uid="uid://cw0sxl5jy1lwa"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_5hofh"]
 [ext_resource type="Texture2D" uid="uid://cedx8dmn4lkhy" path="res://assets/textures/bg/Ground.png" id="2_fpuio"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://1v3mlk3w7nx7" path="res://assets/textures/bg/Layer1.png" id="4_g8i05"]
 [ext_resource type="Texture2D" uid="uid://c4kaqddesp46s" path="res://assets/textures/bg/Layer2.png" id="5_flp1d"]
 [ext_resource type="Texture2D" uid="uid://cuky5mksrnb01" path="res://assets/textures/bg/Layer3.png" id="6_jaeuo"]
+[ext_resource type="PackedScene" uid="uid://gb4t3b3qp3pq" path="res://scenes/hud.tscn" id="7_t2f7o"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_5hofh")
@@ -37,6 +38,11 @@ motion_mirroring = Vector2(0, 2509.5)
 scale = Vector2(0.875, 0.875)
 texture = ExtResource("6_jaeuo")
 centered = false
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="HUD" parent="UILayer" instance=ExtResource("7_t2f7o")]
 
 [node name="GroundSprite" type="Sprite2D" parent="."]
 position = Vector2(270, 960)

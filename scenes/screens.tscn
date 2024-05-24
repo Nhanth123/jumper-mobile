@@ -9,6 +9,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_6x456"]
 
 [node name="Screens" type="CanvasLayer"]
+layer = 101
 script = ExtResource("1_42j5j")
 
 [node name="TitleScreen" parent="." instance=ExtResource("3_mg3nv")]
