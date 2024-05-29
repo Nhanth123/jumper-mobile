@@ -15,10 +15,8 @@ script = ExtResource("1_42j5j")
 [node name="TitleScreen" parent="." instance=ExtResource("3_mg3nv")]
 
 [node name="PauseScreen" parent="." instance=ExtResource("4_gy7p2")]
-visible = false
 
 [node name="GameOverScreen" parent="." instance=ExtResource("4_i8ulc")]
-visible = false
 
 [node name="Debug" type="Control" parent="."]
 z_index = 1200

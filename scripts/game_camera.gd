@@ -8,6 +8,9 @@ var viewport_size
 var limit_distance = 420
 
 func _ready():
+	if player:
+		global_position.y = player.global_position.y
+
 	viewport_size = get_viewport_rect().size
 	global_position.x = get_viewport_rect().size.x / 2
 	
