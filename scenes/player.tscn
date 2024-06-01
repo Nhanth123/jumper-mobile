@@ -149,3 +149,9 @@ shape = SubResource("RectangleShape2D_wmnqw")
 libraries = {
 "": SubResource("AnimationLibrary_oxrrp")
 }
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.5, -1)
+scale = Vector2(2.15, 0.9)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

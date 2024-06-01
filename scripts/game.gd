@@ -57,7 +57,7 @@ func setup_parallax_layer(parallax_layer: ParallaxLayer):
 func new_game():
 	player = player_scene.instantiate()
 	player.global_position = player_spawn_pos
-	
+	player.died.connect(_on_player_died)
 	add_child(player)
 	
 	camera = camera_scene.instantiate()
@@ -69,3 +69,6 @@ func new_game():
 		level_generator.start_generation()
 	
 	hud.visible = true
+
+func _on_player_died():
+	print("On player died")
