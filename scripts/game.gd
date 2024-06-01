@@ -14,6 +14,8 @@ var camera_scene = preload("res://scenes/game_camera.tscn")
 var camera = null
 var viewport_size : Vector2
 
+signal player_died(score, highscore)
+
 func _ready():
 	viewport_size = get_viewport_rect().size
 	
@@ -71,4 +73,6 @@ func new_game():
 	hud.visible = true
 
 func _on_player_died():
-	print("On player died")
+	hud.visible = false
+	player_died.emit(1998, 9841)
+	

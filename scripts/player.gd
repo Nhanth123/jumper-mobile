@@ -60,5 +60,5 @@ func die():
 	if !dead:
 		dead = true
 		cshape.set_deferred("disabled", true)
-		died.emit()	
+		died.emit()
 	
