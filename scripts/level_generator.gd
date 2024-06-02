@@ -19,7 +19,6 @@ func _ready():
 	viewport_size = get_viewport_rect().size
 	generated_plaform_count = 0
 	start_position_y = viewport_size.y - (y_distance_between_platforms * 2)
-	generate_level(start_position_y, true)
 
 func start_generation():
 	generate_level(start_position_y, true)
@@ -61,5 +60,7 @@ func generate_level(start_y: float, generate_ground: bool):
 		print(location)
 		create_platform(location)
 		generated_plaform_count += 1
-	#print(generated_plaform_count)
-	
+
+func reset_level():
+	for platform in platform_parent.get_children():
+		platform.queue_free()
