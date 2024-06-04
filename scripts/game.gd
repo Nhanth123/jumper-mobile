@@ -15,6 +15,7 @@ var camera = null
 var viewport_size : Vector2
 
 signal player_died(score, highscore)
+var score: int  = 0
 
 func _ready():
 	viewport_size = get_viewport_rect().size
@@ -39,6 +40,11 @@ func _process(_delta):
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
+		
+	if player:
+		if score < (viewport_size.y - player.global_position.y):
+			score = (viewport_size.y - player.global_position.y)
+			print(score)
 
 func get_parallax_sprite_scale(parallax_sprite: Sprite2D):
 	var parallax_texture = parallax_sprite.get_texture()
@@ -74,6 +80,7 @@ func new_game():
 	
 	hud.visible = true
 	ground_sprite.visible = true
+	score = 0
 
 func _on_player_died():
 	hud.visible = false

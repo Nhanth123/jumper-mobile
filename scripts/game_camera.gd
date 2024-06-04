@@ -27,7 +27,7 @@ func _ready():
 	
 func _process(_delta):
 	if player:
-		if limit_bottom > player.global_position.y + limit_distance:
+		if limit_bottom > (player.global_position.y + limit_distance):
 			limit_bottom = int(player.global_position.y + limit_distance)
 	
 	var overlapping_areas =  clean_up.get_overlapping_areas()
