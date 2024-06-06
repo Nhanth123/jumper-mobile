@@ -15,7 +15,10 @@ var camera = null
 var viewport_size : Vector2
 
 signal player_died(score, highscore)
+
 var score: int  = 0
+var highscore: int = 0
+var save_file_path = "user://highscore.save"
 
 func _ready():
 	viewport_size = get_viewport_rect().size
@@ -34,6 +37,7 @@ func _ready():
 	
 	hud.visible = false
 	ground_sprite.visible = false
+	load_score()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("reset"):
@@ -84,7 +88,11 @@ func new_game():
 
 func _on_player_died():
 	hud.visible = false
-	player_died.emit(1998, 9841)
+	if score > highscore:
+		highscore = score
+		save_score()
+	
+	player_died.emit(score, highscore)
 
 func reset_game():
 	ground_sprite.visible = false
@@ -98,3 +106,19 @@ func reset_game():
 	if camera != null:
 		camera.queue_free()
 		camera = null
+
+func save_score():
+	var file = FileAccess.open(save_file_path, FileAccess.WRITE)
+	file.store_var(highscore)
+	print("saving high score to disk...")
+	file.close()
+
+func load_score():
+	if FileAccess.file_exists(save_file_path):
+		var file = FileAccess.open(save_file_path, FileAccess.READ)
+		highscore = file.get_var()
+		print("Load score from file: " + str(highscore))
+		file.close()
+	else:
+		print("File doesn't exsit...")
+		highscore = 0
