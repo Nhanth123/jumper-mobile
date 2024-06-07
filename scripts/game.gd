@@ -15,6 +15,7 @@ var camera = null
 var viewport_size : Vector2
 
 signal player_died(score, highscore)
+signal pause_game
 
 var score: int  = 0
 var highscore: int = 0
@@ -36,6 +37,8 @@ func _ready():
 	setup_parallax_layer(parallax3)
 	
 	hud.visible = false
+	hud.set_score(0)
+	hud.pause_game.connect(_on_hud_pause_game)
 	ground_sprite.visible = false
 	load_score()
 
@@ -122,3 +125,6 @@ func load_score():
 	else:
 		print("File doesn't exsit...")
 		highscore = 0
+
+func _on_hud_pause_game():
+	pause_game.emit()

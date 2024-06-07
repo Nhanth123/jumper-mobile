@@ -7,6 +7,7 @@ func _ready():
 	screens.start_game.connect(_on_screens_start_game)
 	game.player_died.connect(_on_game_player_died)
 	screens.delete_level.connect(_on_screens_delete_level)
+	game.pause_game.connect(_on_game_pause_game)
 	
 func _on_screens_start_game():
 	game.new_game()
@@ -17,3 +18,6 @@ func _on_game_player_died(score, highscore):
 
 func _on_screens_delete_level():
 	game.reset_game()
+
+func _on_game_pause_game():
+	get_tree().paused = true
