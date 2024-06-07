@@ -72,4 +72,6 @@ func game_over(score, highscore):
 	game_over_score_label.text = "Score: " + str(score)
 	game_over_high_score_label.text = "Best: " + str(highscore)
 	change_screen(game_over_screen)
-	
+
+func pause_game():
+	change_screen(pause_screen)

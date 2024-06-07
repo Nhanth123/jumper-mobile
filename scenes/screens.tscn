@@ -9,6 +9,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_6x456"]
 
 [node name="Screens" type="CanvasLayer"]
+process_mode = 3
 layer = 101
 script = ExtResource("1_42j5j")
 
