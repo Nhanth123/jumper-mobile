@@ -11,7 +11,7 @@ var sounds = {
 
 @onready var sound_players = get_children()
 
-func play_sound(sound_name):
+func play(sound_name):
 	var sound_to_play = sounds[sound_name]
 	for sound_player in sound_players:
 		if !sound_player.playing:
