@@ -25,7 +25,7 @@ func _on_window_event(event):
 		DisplayServer.WINDOW_EVENT_CLOSE_REQUEST:
 			get_tree().quit()
 
-func _process(delta):
+func _process(_delta):
 	print(game_in_progress)
 
 func _on_screens_start_game():

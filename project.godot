@@ -24,6 +24,7 @@ run/handheld/orientation=1
 [autoload]
 
 MyUtility="*res://scripts/utility.gd"
+SoundFX="*res://scenes/sound_fx.tscn"
 
 [display]
 
