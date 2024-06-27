@@ -15,16 +15,23 @@ var accelerometer_speed = 130
 var dead = false
 var use_accelerometer = false
 
+var fall_anim_name = "fall"
+var jump_anim_name = "jump"
+
 func _ready():
 	viewport_size = get_viewport_rect().size
+	
+	var os_name = OS.get_name()
+	if os_name == "Android" || os_name == "iOS":
+		use_accelerometer =  true
 
 func _process(_delta):
 	if velocity.y > 0:
-		if animator.current_animation != "fall":
-			animator.play("fall")
+		if animator.current_animation != fall_anim_name:
+			animator.play(fall_anim_name)
 	elif velocity.y < 0:
-		if animator.current_animation != "jump":
-			animator.play("jump")
+		if animator.current_animation != jump_anim_name:
+			animator.play(jump_anim_name)
 
 func _physics_process(_delta):
 	velocity.y += gravity
@@ -62,4 +69,8 @@ func die():
 		cshape.set_deferred("disabled", true)
 		died.emit()
 		SoundFX.play("Fall")
+
+func use_new_skin():
+	fall_anim_name = "fall_red"
+	jump_anim_name = "jump_red"
 	

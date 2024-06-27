@@ -26,7 +26,8 @@ func _on_window_event(event):
 			get_tree().quit()
 
 func _process(_delta):
-	print(game_in_progress)
+	#print(game_in_progress)
+	pass
 
 func _on_screens_start_game():
 	game_in_progress = true
