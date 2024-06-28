@@ -3,6 +3,8 @@ class_name Player
 
 @onready var animator = $AnimationPlayer
 @onready var cshape = $CollisionShape2D
+@onready var sprite_2d = $Sprite2D
+
 signal died
 
 var speed = 300.0
@@ -73,4 +75,8 @@ func die():
 func use_new_skin():
 	fall_anim_name = "fall_red"
 	jump_anim_name = "jump_red"
+	
+	if sprite_2d:
+		sprite_2d.texture = preload("res://assets/textures/character/Skin2Idle.png")
+	
 	

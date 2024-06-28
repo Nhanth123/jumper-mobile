@@ -6,7 +6,7 @@ var sounds = {
 	"Click": load("res://assets/sound/Click.wav"),
 	"Fall": load("res://assets/sound/Fall.wav"),
 	"Jump": load("res://assets/sound/Jump.wav"),
-	"Welcome": load("res://assets/sound/Welcome.wav")
+	"Background_Sound": load("res://assets/sound/everything_feels_like_a_movie.mp3")
 }
 
 @onready var sound_players = get_children()
