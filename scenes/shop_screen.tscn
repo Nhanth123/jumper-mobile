@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://sqst1sivmrw1"]
+[gd_scene load_steps=10 format=3 uid="uid://c52gj6ajjr8mw"]
 
 [ext_resource type="Script" path="res://scripts/base_screen.gd" id="1_uvlgq"]
 [ext_resource type="Texture2D" uid="uid://70qnwfxe18ba" path="res://assets/textures/ui/Box01.png" id="2_flcvo"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://clah80jdo5lva" path="res://assets/textures/ui/Closebtn2.png" id="4_0h1go"]
 [ext_resource type="Texture2D" uid="uid://duoi4we07s6kw" path="res://assets/textures/ui/Box04.png" id="5_7m0ly"]
 [ext_resource type="Texture2D" uid="uid://dkgo7viq0ruu2" path="res://assets/textures/character/Skin2Idle.png" id="6_iwbbi"]
-[ext_resource type="FontFile" uid="uid://duiwk4kr4wbr6" path="res://assets/font/wpa-gothic.ttf" id="7_mhs7g"]
+[ext_resource type="FontFile" uid="uid://dti6v7mio0tt8" path="res://assets/font/wpa-gothic.ttf" id="7_mhs7g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f84ix"]
 font_size = 75

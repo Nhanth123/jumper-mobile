@@ -51,7 +51,7 @@ func _process(_delta):
 		
 	if player:
 		if score < (viewport_size.y - player.global_position.y):
-			score = (viewport_size.y - player.global_position.y)
+			score = int(viewport_size.y - player.global_position.y)
 			hud.set_score(score)
 
 func get_parallax_sprite_scale(parallax_sprite: Sprite2D):
