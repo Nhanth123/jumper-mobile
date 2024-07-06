@@ -18,7 +18,7 @@ func _ready():
 	screens.purchase_skin.connect(_on_screens_purchase_skin)
 
 func _on_window_event(event):
-	print("New windows event: " + str(event))
+	print("New the mouse pointer enters or exit the window. Event: " + str(event))
 	match event:
 		DisplayServer.WINDOW_EVENT_FOCUS_IN:
 			print("Focus in")
