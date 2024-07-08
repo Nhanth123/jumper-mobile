@@ -18,13 +18,20 @@ func _ready():
 		
 		google_payment.sku_details_query_error.connect(_on_sku_details_query_error)
 		
+		google_payment.purchases_updated.connect(_on_purchases_updated)
+		google_payment.purchase_error.connect(_on_purchase_error)
 		google_payment.startConnection()
 	else:
 		MyUtility.add_log_msg("Android IAP support is not available")	
 	
 
 func purchase_skin():
-	unlock_new_skin.emit()
+	if google_payment:
+		var response = google_payment.purchase(new_skin_sku)
+		MyUtility.add_log_msg("Purchased attempted, response: " + str(response.status))
+		
+		if response.status != OK:
+			MyUtility.add_log_msg("Error purchasing skin!.")
 
 func _on_connected():
 	MyUtility.add_log_msg("Connected")
@@ -46,3 +53,9 @@ func _on_sku_details_query_completed(skus):
 
 func _on_sku_details_query_error(response_id, error_message, skus):
 	MyUtility.add_log_msg("Sku query error , response id: " + str(response_id) + " ,message: " + str(error_message) + ", skus: " + str(skus) )
+
+func _on_purchases_updated(purchases):
+	pass
+	
+func _on_purchase_error(response_id, error_message):
+	MyUtility.add_log_msg("Purchase error, response id: " + str(response_id) + ". Debug msg: " + error_message)
