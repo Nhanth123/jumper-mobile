@@ -55,7 +55,9 @@ func _on_sku_details_query_error(response_id, error_message, skus):
 	MyUtility.add_log_msg("Sku query error , response id: " + str(response_id) + " ,message: " + str(error_message) + ", skus: " + str(skus) )
 
 func _on_purchases_updated(purchases):
-	pass
+	if purchases.size() > 0:
+		var purchase = purchases[0]
+		var purchase_sku = purchase["skus"][0]
 	
 func _on_purchase_error(response_id, error_message):
 	MyUtility.add_log_msg("Purchase error, response id: " + str(response_id) + ". Debug msg: " + error_message)
