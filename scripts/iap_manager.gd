@@ -20,6 +20,10 @@ func _ready():
 		
 		google_payment.purchases_updated.connect(_on_purchases_updated)
 		google_payment.purchase_error.connect(_on_purchase_error)
+		
+		google_payment.purchase_acknowledged.connect(_on_purchase_acknowledged)
+		google_payment.purchase_acknowledgement_error.connect(_on_purchase_acknowledgement_error)
+		
 		google_payment.startConnection()
 	else:
 		MyUtility.add_log_msg("Android IAP support is not available")	
@@ -61,6 +65,20 @@ func _on_purchases_updated(purchases):
 		MyUtility.add_log_msg("Purchased item with sku: " + purchase_sku)
 		if purchase_sku == new_skin_sku:
 			new_skin_token = purchase.purchase_token
+			google_payment.acknowledgePurchase(purchase.purchase_token)
 	
 func _on_purchase_error(response_id, error_message):
 	MyUtility.add_log_msg("Purchase error, response id: " + str(response_id) + ". Debug msg: " + error_message)
+
+
+func _on_purchase_acknowledged(purchase_token):
+	MyUtility.add_log_msg("Purchase acknowledged successfully!")
+	
+	if !new_skin_token.is_empty():
+		if new_skin_token == purchase_token:
+			MyUtility.add_log_msg("Unlock new skin!")
+			unlock_new_skin.emit()
+	
+
+func _on_purchase_acknowledgement_error(response_id, error_message, purchase_token):
+	MyUtility.add_log_msg("Purchase acknowledgement error , response id: " + str(response_id) + " ,message: " + str(error_message) + ", token: " + str(purchase_token) )
