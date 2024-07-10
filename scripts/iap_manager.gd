@@ -23,6 +23,7 @@ func _ready():
 		
 		google_payment.purchase_acknowledged.connect(_on_purchase_acknowledged)
 		google_payment.purchase_acknowledgement_error.connect(_on_purchase_acknowledgement_error)
+		google_payment.query_purchases_response.connect(_on_query_purchases_response)
 		
 		google_payment.startConnection()
 	else:
@@ -38,7 +39,7 @@ func purchase_skin():
 			MyUtility.add_log_msg("Error purchasing skin!.")
 
 func _on_connected():
-	MyUtility.add_log_msg("Connected")
+	MyUtility.add_log_msg("Connected to googlepayment console")
 	google_payment.querySkuDetails([new_skin_sku], "inapp")
 
 func _on_connect_error(response_id, debug_msg):
@@ -48,11 +49,13 @@ func _on_disconnected():
 	MyUtility.add_log_msg("Disconnected from googlepayment")
 
 func _on_sku_details_query_completed(skus):
-	MyUtility.add_log_msg("sku detail query comoleted")
+	MyUtility.add_log_msg("Sku detail query completed")
 	
 	for sku in skus:
-		MyUtility.add_log_msg("SKUs")
-		MyUtility.add_to_group(str(sku))
+		MyUtility.add_log_msg("SKUs:")
+		MyUtility.add_log_msg(str(sku))
+	
+	google_payment.queryPurchases("inapp")
 
 
 func _on_sku_details_query_error(response_id, error_message, skus):
@@ -82,3 +85,19 @@ func _on_purchase_acknowledged(purchase_token):
 
 func _on_purchase_acknowledgement_error(response_id, error_message, purchase_token):
 	MyUtility.add_log_msg("Purchase acknowledgement error , response id: " + str(response_id) + " ,message: " + str(error_message) + ", token: " + str(purchase_token) )
+
+func _on_query_purchases_response(query_result):
+	if query_result.status == OK:
+		MyUtility.add_log_msg("Query purchases was successful")
+		var purchases = query_result.purchases
+		var purchase = purchases[0]
+		var purchase_sku = purchase["skus"][0]
+		if new_skin_sku == purchase_sku:
+			new_skin_token = purchase.purchase_token
+			if !purchase.is_acknowledged:
+				google_payment.acknowledgedPurchase(purchase.purchase_token)
+			else:
+				unlock_new_skin.emit()
+				MyUtility.add_log_msg("Unlock because already purchased previously")
+	else:
+		MyUtility.add_log_msg("Query purchases failed")
