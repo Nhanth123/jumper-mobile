@@ -95,7 +95,7 @@ func _on_query_purchases_response(query_result):
 		if new_skin_sku == purchase_sku:
 			new_skin_token = purchase.purchase_token
 			if !purchase.is_acknowledged:
-				google_payment.acknowledgedPurchase(purchase.purchase_token)
+				google_payment.acknowledgePurchase(purchase.purchase_token)
 			else:
 				unlock_new_skin.emit()
 				MyUtility.add_log_msg("Unlock because already purchased previously")
