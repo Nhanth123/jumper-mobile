@@ -25,6 +25,9 @@ func _ready():
 		google_payment.purchase_acknowledgement_error.connect(_on_purchase_acknowledgement_error)
 		google_payment.query_purchases_response.connect(_on_query_purchases_response)
 		
+		google_payment.purchase_consumed.connect(_on_purchase_consumed)
+		google_payment.purchase_consumption_error.connect(_on_purchase_consumption_error)
+
 		google_payment.startConnection()
 	else:
 		MyUtility.add_log_msg("Android IAP support is not available")	
@@ -37,6 +40,12 @@ func purchase_skin():
 		
 		if response.status != OK:
 			MyUtility.add_log_msg("Error purchasing skin!.")
+
+func reset_purchases():
+	if google_payment:
+		if !new_skin_token.is_empty():
+			google_payment.consumePurchase(new_skin_token)
+
 
 func _on_connected():
 	MyUtility.add_log_msg("Connected to googlepayment console")
@@ -101,3 +110,12 @@ func _on_query_purchases_response(query_result):
 				MyUtility.add_log_msg("Unlock because already purchased previously")
 	else:
 		MyUtility.add_log_msg("Query purchases failed")
+
+
+func _on_purchase_consumed(purchase_token):
+	MyUtility.add_log_msg("Purchase consumed successfully!. " + str(purchase_token))
+	
+
+func _on_purchase_consumption_error(response_id, error_message, purchase_token):
+	MyUtility.add_log_msg("Purchase consumption error , response id: " + str(response_id) + " ,message: " + str(error_message) + ", token: " + str(purchase_token) )
+
