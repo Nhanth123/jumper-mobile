@@ -111,8 +111,9 @@ func _on_query_purchases_response(query_result):
 	else:
 		MyUtility.add_log_msg("Query purchases failed")
 
+
 func _on_purchase_consumed(purchase_token):
-	MyUtility.add_log_msg("Purchase consumed successfully!")
+	MyUtility.add_log_msg("Purchase consumed successfully!. " + str(purchase_token))
 	
 
 func _on_purchase_consumption_error(response_id, error_message, purchase_token):
