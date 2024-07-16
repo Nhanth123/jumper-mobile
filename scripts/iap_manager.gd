@@ -7,7 +7,7 @@ var new_skin_sku = "new_player_skin" # need to be matched on google console
 var new_skin_token = ""
 
 var apple_payment = null
-var apple_product_id = "player_new_skin"
+var apple_product_id = "player_new_skin" # need to be matched on apple store
 
 func _ready():
 	if Engine.has_singleton("GodotGooglePlayBilling"):
@@ -41,15 +41,16 @@ func _ready():
 		
 		var result = apple_payment.request_product_info({"product_ids": [apple_product_id]})
 		if result == OK:
-			pass
-		else:
 			MyUtility.add_log_msg("iOS IAP support is not available")
+			apple_payment.set_auto_finish_transaction(true)
+			
 			var timer = Timer.new()
 			timer.wait_time = 1
 			timer.timeout.connect(check_events)
 			add_child(timer)
 			timer.start()
-			
+		else:
+			MyUtility.add_log_msg("Failed to request product info")
 	else:
 		MyUtility.add_log_msg("iOS IAP support is not available")
 		
@@ -60,14 +61,20 @@ func purchase_skin():
 		
 		if response.status != OK:
 			MyUtility.add_log_msg("Error purchasing skin!.")
-
+	elif apple_payment:
+		var result = apple_payment.purchase({"product_id": apple_product_id})
+		if result == OK:
+			MyUtility.add_log_msg("Error result OK!")
+		else:
+			MyUtility.add_log_msg("Purchase failed!")
+	
 func reset_purchases():
 	if google_payment:
 		if !new_skin_token.is_empty():
 			google_payment.consumePurchase(new_skin_token)
 
 
-# iOS Purchase
+# Using for iOS Purchase
 func check_events():
 	while apple_payment.get_pending_event_count() > 0:
 		var event = apple_payment.pop_pending_event()
@@ -75,8 +82,10 @@ func check_events():
 			match event.type:
 				"product_info":
 					MyUtility.add_log_msg(str(event))
-					
-					
+				"purchase":
+					if event.product_id == apple_product_id:
+						unlock_new_skin.emit()
+						MyUtility.add_log_msg("Purchase the skin IAP , unlocking it !")
 					
 func _on_connected():
 	MyUtility.add_log_msg("Connected to googlepayment console")
