@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c52gj6ajjr8mw"]
+[gd_scene load_steps=12 format=3 uid="uid://c52gj6ajjr8mw"]
 
 [ext_resource type="Script" path="res://scripts/base_screen.gd" id="1_uvlgq"]
 [ext_resource type="Texture2D" uid="uid://70qnwfxe18ba" path="res://assets/textures/ui/Box01.png" id="2_flcvo"]
@@ -18,6 +18,11 @@ font_size = 30
 font_color = Color(0.00351917, 0.00351917, 0.00351917, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7t80v"]
+font = ExtResource("7_mhs7g")
+font_size = 27
+font_color = Color(0.00351917, 0.00351917, 0.00351917, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eob84"]
 font = ExtResource("7_mhs7g")
 font_size = 27
 font_color = Color(0.00351917, 0.00351917, 0.00351917, 1)
@@ -154,4 +159,37 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Reset Purchases"
 label_settings = SubResource("LabelSettings_7t80v")
+horizontal_alignment = 1
+
+[node name="ShopRestorePurchases" parent="Box" instance=ExtResource("3_tauoq")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -127.0
+offset_top = -218.0
+offset_right = 127.0
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("5_7m0ly")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Box/ShopRestorePurchases"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.5
+offset_top = -50.0
+offset_right = 95.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Restore Purchases"
+label_settings = SubResource("LabelSettings_eob84")
 horizontal_alignment = 1

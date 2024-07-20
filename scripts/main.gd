@@ -17,6 +17,7 @@ func _ready():
 	iap_manager.unlock_new_skin.connect(_iap_manager_unlock_new_skin)
 	screens.purchase_skin.connect(_on_screens_purchase_skin)
 	screens.reset_purchases.connect(_on_screens_reset_purchases)
+	screens.restore_purchases.connect(_on_screens_restore_purchases)
 
 func _on_window_event(event):
 	print("New the mouse pointer enters or exit the window. Event: " + str(event))
@@ -31,9 +32,6 @@ func _on_window_event(event):
 		DisplayServer.WINDOW_EVENT_CLOSE_REQUEST:
 			get_tree().quit()
 
-func _process(_delta):
-	#print(game_in_progress)
-	pass
 
 func _on_screens_start_game():
 	game_in_progress = true
@@ -62,3 +60,6 @@ func _iap_manager_unlock_new_skin():
 
 func _on_screens_reset_purchases():
 	iap_manager.reset_purchases()
+	
+func _on_screens_restore_purchases():
+	iap_manager.restore_purchases()

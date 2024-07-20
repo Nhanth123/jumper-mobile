@@ -73,6 +73,15 @@ func reset_purchases():
 		if !new_skin_token.is_empty():
 			google_payment.consumePurchase(new_skin_token)
 
+func restore_purchases():
+	if apple_payment:
+		var result = apple_payment.restore_purchases()
+		if result == OK:
+			MyUtility.add_log_msg("Restore purchases call is successful")
+		else:
+			MyUtility.add_log_msg("Restore purchases call failed")
+	elif google_payment:
+		google_payment.queryPurchases("inapp")
 
 # Using for iOS Purchase
 func check_events():
