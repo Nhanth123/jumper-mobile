@@ -82,10 +82,21 @@ func check_events():
 			match event.type:
 				"product_info":
 					MyUtility.add_log_msg(str(event))
+					var result = apple_payment.restore_purchases()
+					
+					if result == OK:
+						MyUtility.add_log_msg("Restore purchases call is successful")
+					else:
+						MyUtility.add_log_msg("Restore purchases call failed")
 				"purchase":
 					if event.product_id == apple_product_id:
 						unlock_new_skin.emit()
 						MyUtility.add_log_msg("Purchase the skin IAP , unlocking it !")
+				"restore":
+					MyUtility.add_log_msg("Restore transaction ID: " + str(event.transaction_id) + " ProductID: " + str(event.product_id) )
+					if event.product_id == apple_product_id:
+						unlock_new_skin.emit()
+						MyUtility.add_log_msg("Restored previously purchased skin !")
 					
 func _on_connected():
 	MyUtility.add_log_msg("Connected to googlepayment console")
