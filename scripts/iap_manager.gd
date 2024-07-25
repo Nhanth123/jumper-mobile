@@ -82,6 +82,7 @@ func restore_purchases():
 			MyUtility.add_log_msg("Restore purchases call failed")
 	elif google_payment:
 		google_payment.queryPurchases("inapp")
+		
 
 # Using for iOS Purchase
 func check_events():

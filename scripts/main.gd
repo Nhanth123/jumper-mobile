@@ -27,7 +27,7 @@ func _on_window_event(event):
 		DisplayServer.WINDOW_EVENT_FOCUS_OUT:
 			print("Focus out")
 			if game_in_progress == true && !get_tree().paused:
-				print("Windows minizied, paused game")
+				print("Windows minimized, paused game")
 				_on_game_pause_game()
 		DisplayServer.WINDOW_EVENT_CLOSE_REQUEST:
 			get_tree().quit()
@@ -53,6 +53,7 @@ func _on_game_pause_game():
 func _on_screens_purchase_skin():
 	iap_manager.purchase_skin()
 
+# IAP Signals
 func _iap_manager_unlock_new_skin():
 	if game.new_skin_unlocked == false:
 		game.new_skin_unlocked = true

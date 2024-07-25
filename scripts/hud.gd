@@ -22,8 +22,6 @@ func _ready():
 		topbar_bg.size.y += safe_area_top + margin
 
 func _on_pause_button_pressed():
-	#print("Paused is pressed")
-	#get_tree().paused = !get_tree().paused
 	SoundFX.play("Click")
 	pause_game.emit()
 	

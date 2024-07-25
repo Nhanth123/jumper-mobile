@@ -45,7 +45,6 @@ func _on_button_pressed(button):
 		"TitleShop":
 			change_screen(shop_screen)
 		"PauseText":
-			print("Pause retry")
 			change_screen(game_over_screen)
 		"PauseRetry":
 			change_screen(null)
