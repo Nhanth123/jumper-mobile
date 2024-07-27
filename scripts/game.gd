@@ -120,7 +120,7 @@ func reset_game():
 func save_score():
 	var file = FileAccess.open(save_file_path, FileAccess.WRITE)
 	file.store_var(highscore)
-	print("saving high score to disk...")
+	print("Saving high score to disk...")
 	file.close()
 
 func load_score():

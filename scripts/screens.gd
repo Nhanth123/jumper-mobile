@@ -14,7 +14,7 @@ signal restore_purchases
 @onready var shop_screen = $ShopScreen
 
 @onready var game_over_score_label = $GameOverScreen/Box/ScoreLabel
-@onready var game_over_high_score_label = $GameOverScreen/Box/ScoreLabel
+@onready var game_over_high_score_label = $GameOverScreen/Box/HighScoreLabel
 
 var current_screne = null
 
