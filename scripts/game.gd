@@ -58,8 +58,8 @@ func get_parallax_sprite_scale(parallax_sprite: Sprite2D):
 	var parallax_texture = parallax_sprite.get_texture()
 	var parallax_texture_width = parallax_texture.get_width()
 	
-	var scale = viewport_size.x / parallax_texture_width
-	var result = Vector2(scale, scale)
+	var vector_scale = viewport_size.x / parallax_texture_width
+	var result = Vector2(vector_scale, vector_scale)
 	return result
 
 func setup_parallax_layer(parallax_layer: ParallaxLayer):

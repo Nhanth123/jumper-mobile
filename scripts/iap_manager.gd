@@ -179,4 +179,3 @@ func _on_purchase_consumed(purchase_token):
 
 func _on_purchase_consumption_error(response_id, error_message, purchase_token):
 	MyUtility.add_log_msg("Purchase consumption error , response id: " + str(response_id) + " ,message: " + str(error_message) + ", token: " + str(purchase_token) )
-
