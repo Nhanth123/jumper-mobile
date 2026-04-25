@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bdlxca53rrkis"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_4l1np"]
+[ext_resource type="Script" uid="uid://on42cf2eby37" path="res://scripts/player.gd" id="1_4l1np"]
 [ext_resource type="Texture2D" uid="uid://cvd1nbf82ivi" path="res://assets/textures/character/Skin1Idle.png" id="1_rdu3g"]
 [ext_resource type="Texture2D" uid="uid://8e0j75cgfrls" path="res://assets/textures/character/Skin1Jump.png" id="2_4r4k7"]
 [ext_resource type="Texture2D" uid="uid://dkgo7viq0ruu2" path="res://assets/textures/character/Skin2Idle.png" id="4_amebt"]
@@ -206,11 +206,11 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oxrrp"]
 _data = {
-"RESET": SubResource("Animation_l387u"),
-"fall": SubResource("Animation_m34mf"),
-"fall_red": SubResource("Animation_oy0bd"),
-"jump": SubResource("Animation_8lvht"),
-"jump_red": SubResource("Animation_ap268")
+&"RESET": SubResource("Animation_l387u"),
+&"fall": SubResource("Animation_m34mf"),
+&"fall_red": SubResource("Animation_oy0bd"),
+&"jump": SubResource("Animation_8lvht"),
+&"jump_red": SubResource("Animation_ap268")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -229,7 +229,7 @@ shape = SubResource("RectangleShape2D_wmnqw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_oxrrp")
+&"": SubResource("AnimationLibrary_oxrrp")
 }
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

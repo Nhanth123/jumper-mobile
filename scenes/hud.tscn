@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://gb4t3b3qp3pq"]
 
-[ext_resource type="Script" path="res://scripts/hud.gd" id="1_dt62o"]
+[ext_resource type="Script" uid="uid://r1r04mrcpng6" path="res://scripts/hud.gd" id="1_dt62o"]
 [ext_resource type="Texture2D" uid="uid://b7vs30dkw1b20" path="res://assets/textures/ui/ScoreBox.png" id="1_qltfi"]
 [ext_resource type="Texture2D" uid="uid://b1el4wtfdb7qm" path="res://assets/textures/ui/PauseBtn.png" id="2_x17eb"]
 

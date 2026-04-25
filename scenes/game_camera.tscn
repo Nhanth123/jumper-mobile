@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://7xluh1veq5uk"]
 
-[ext_resource type="Script" path="res://scripts/game_camera.gd" id="1_tchyt"]
+[ext_resource type="Script" uid="uid://b4s08p12eidt3" path="res://scripts/game_camera.gd" id="1_tchyt"]
 
 [node name="GameCamera" type="Camera2D"]
 limit_bottom = 960
